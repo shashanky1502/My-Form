@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="container">
+        <div class="purple_line"></div>
+        <h1>FORM😁</h1>
+        <form action="/submit" method="POST" onsubmit="return showConfirmation();">
+            <ul style="list-style-type: none; padding: 0;">
+                <li>
+                    <label for="firstname">First Name:</label>
+                    <input type="text" id="firstname" name="firstname" placeholder="Enter your first name" required>
+                </li>
+                <li>
+                    <label for="lastname">Last Name:</label>
+                    <input type="text" id="lastname" name="lastname" placeholder="Enter your last name" required>
+                </li>
+                <li>
+                    <label for="email">Email:</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+                </li>
+                <li>
+                    <label for="dob">Date of Birth:</label>
+                    <input type="date" id="dob" name="dob" required>
+                </li>
+                <li>
+                    <label for="age">Age:</label>
+                    <input type="text" id="age" name="age" readonly>
+                </li>
+            </ul>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+    
+    <script>
+        function calculateAge() {
+            var dob = new Date(document.getElementById("dob").value);
+            var today = new Date();
+            var age = today.getFullYear() - dob.getFullYear();
+
+            if (
+                today.getMonth() < dob.getMonth() ||
+                (today.getMonth() === dob.getMonth() && today.getDate() < dob.getDate())
+            ) {
+                age--;
+            }
+
+            document.getElementById("age").value = age;
+        }
+
+        function showConfirmation() {
+            calculateAge(); // Calculate the age before submitting
+            return confirm("Are you sure you want to submit the form?");
+        }
+
+        document.getElementById("dob").addEventListener("change", calculateAge);
+    </script>
+</body>
+</html>

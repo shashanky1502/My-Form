@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmation Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #673ab7;
+            margin-top: 0;
+        }
+        p {
+            text-align: center;
+            margin-bottom: 0;
+        }
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .button-container button {
+            background-color: #673ab7;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+        .button-container button:hover {
+            background-color: #512da8;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Thank you!</h1>
+        <p>Your response has been recorded.</p>
+        <div class="button-container">
+            <button onclick="submitAnotherResponse()">Submit Another Response</button>
+        </div>
+        <div class="button-container">
+            <button onclick="showAllResponses()">Show All Responses</button>
+        </div>
+    </div>
+
+    <script>
+        function submitAnotherResponse() {
+            window.location.href = "form.html";
+        }
+
+        function showAllResponses() {
+            window.location.href = "/responses";
+          }          
+    </script>
+</body>
+</html>
